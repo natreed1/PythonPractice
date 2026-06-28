@@ -1,1 +1,0 @@
-from  learningPython import calculatorComp 
