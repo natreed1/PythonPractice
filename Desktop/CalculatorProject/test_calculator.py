@@ -19,6 +19,7 @@ def test_division():
 
 def test_parentheses():
     assert calculate("( ( 2 + 5) * 3 ) / 3") == 7.0
+    assert calculate("(1 + 3) * (2 + 4)") == 24.0
 
 
 
