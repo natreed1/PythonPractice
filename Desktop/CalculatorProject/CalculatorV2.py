@@ -21,7 +21,7 @@ def process_variable(variable: str) -> tuple[str, float]:
 def add_variable() -> list[str]:
     variable = input("Please enter a variable and its value (ex: x = 5): ")
     return process_variable(variable)
-
+ 
      
 def process_parentheses(expression: list[str]) -> list[str]:
     if "(" in expression:
