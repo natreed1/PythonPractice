@@ -1,0 +1,25 @@
+body {
+    font-family: 'Arial', Times, serif;
+    max-width: 800px;
+    margin: 40px auto;
+    align-items: center;
+    :hover {
+        background-color: #f0f0f0;
+    }
+
+}
+
+.task {
+    border: 1px solid #010101;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Arial', Times, serif;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+

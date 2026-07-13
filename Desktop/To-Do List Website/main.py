@@ -2,14 +2,18 @@ from fastapi import FastAPI
 from fastapi import Form
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
 class Task():
     id = int
-    task_priority: str
+    task_priority: int
     task_description: str
     task_state: bool = False
 
@@ -29,10 +33,24 @@ async def create_task_endpoint(request: Request, task_description: str = Form(..
     tasks.append(task)
     return templates.TemplateResponse("todo_list.html", {"request": request, "tasks": tasks})
 
-@app.post("/update_task")
-async def update_task_endpoint(request: Request, task_id: int = Form(...)):
+@app.post("/update_task_status")
+async def update_task_status_endpoint(request: Request, task_id: int = Form(...)):
     for task in tasks:
         if task.id == task_id:
             task.task_state = True
             break
+    return templates.TemplateResponse("todo_list.html", {"request": request, "tasks": tasks})
+
+@app.post("/update_task_priority")
+async def update_task_priority_endpoint(request: Request, task_id: int = Form(...), task_priority: int = Form(...)):
+    for task in tasks:
+        if task.id == task_id:
+            task.task_priority = task_priority
+            break
+        return templates.TemplateResponse("todo_list.html", {request: request, "tasks": tasks})
+    
+@app.post("/delete_task")
+async def delete_task_endpoint(request: Request):
+    global tasks
+    tasks = [task for task in tasks if not task.task_state]
     return templates.TemplateResponse("todo_list.html", {"request": request, "tasks": tasks})

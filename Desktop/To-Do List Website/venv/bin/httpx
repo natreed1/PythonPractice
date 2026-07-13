@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/natreed/Desktop/To-Do List Website/venv/bin/python3" "$0" "$@"
+'''exec' "/Users/natreed/Desktop/Learning Python/Desktop/To-Do List Website/venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

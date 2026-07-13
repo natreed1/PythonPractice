@@ -1,16 +1,24 @@
 {% for task in tasks %}
     <div class="task">
         <input type="checkbox"
-        hx-post="/update_task"
+        hx-post="/update_task_status"
         hx-target="#task-list"
         name="task_id"
         value="{{ task.id }}">
          {% if task.task_state %}
-            <p style="text-decoration: line-through;">{{ task.task_description }} - {{ task.task_priority }}</p>
+            <p style="text-decoration: line-through;">{{ task.task_description }}</p>
         {% else %}
-            <p>{{ task.task_description }} - {{ task.task_priority }}</p>
+            <p>{{ task.task_description }}</p>
         {% endif %}
+        <select name="task_priority">
+        <option value="High" {% if task.task_priority =="High" %}selected{% endif %}>High</option> 
+        <option value="Medium"{% if task.task_priority =="Medium" %}selected{% endif %}>Medium</option>
+        <option value="Low" {% if task.task_priority =="Low" %}selected{% endif %}>Low</option>
+            </select>
+            
+
     </div>
+
 {% endfor %}
 
 
