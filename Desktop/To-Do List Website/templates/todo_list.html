@@ -6,7 +6,7 @@
         name="task_id"
         value="{{ task.id }}">
          {% if task.task_state %}
-            <p style="text-decoration: line-through;">{{ task.task_description }}</p>
+            <p style="text-decoration: line-through;">{{ task.task_description }} </p>
         {% else %}
             <p>{{ task.task_description }}</p>
         {% endif %}
@@ -15,6 +15,13 @@
         <option value="Medium"{% if task.task_priority =="Medium" %}selected{% endif %}>Medium</option>
         <option value="Low" {% if task.task_priority =="Low" %}selected{% endif %}>Low</option>
             </select>
+        <form>
+       
+        <input type="date" name="task_due_date" value="{{ task.task_due_date }}"
+        hx-post="/update_task_due_date"
+        hx-target="#task-list">
+        <input type="hidden" name="task_id" value="{{ task.id }}">
+        </form>
             
 
     </div>

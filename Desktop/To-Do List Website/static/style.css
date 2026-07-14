@@ -3,19 +3,50 @@ body {
     max-width: 800px;
     margin: 40px auto;
     align-items: center;
-    :hover {
-        background-color: #f0f0f0;
-    }
+}
 
+.task:hover {
+    background-color: #f0f0f0;
 }
 
 .task {
+    margin: 8px 0;
     border: 1px solid #010101;
-    padding: 8px;
-    margin-bottom: 8px;
+    padding: 4px;
     border-radius: 4px;
+    gap: 12px;
     align-items: center;
+    display: flex;
+
 }
+
+.task select {
+    box-sizing: border-box;
+    height: 36px;
+    padding: 4px 8px;
+    font-size: 15px;
+}
+
+.task input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.task input[type="date"] {
+    margin-top: 16px;
+    box-sizing: border-box;
+    height: 36px;
+    padding: 4px 4px;
+    font-size: 16px;
+}
+
+.task input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
 
 .title {
     font-family: 'Arial', Times, serif;
