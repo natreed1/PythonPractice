@@ -4,7 +4,7 @@
         hx-post="/update_task_status"
         hx-target="#task-list"
         name="task_id"
-        value="{{ task.id }}">
+        value="{{ task.task_id }}">
          {% if task.task_state %}
             <p style="text-decoration: line-through;">{{ task.task_description }} </p>
         {% else %}
@@ -20,7 +20,7 @@
         <input type="date" name="task_due_date" value="{{ task.task_due_date }}"
         hx-post="/update_task_due_date"
         hx-target="#task-list">
-        <input type="hidden" name="task_id" value="{{ task.id }}">
+        <input type="hidden" name="task_id" value="{{ task.task_id }}">
         </form>
             
 
